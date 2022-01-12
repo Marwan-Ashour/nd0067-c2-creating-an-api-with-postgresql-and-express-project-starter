@@ -5,38 +5,50 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## API Endpoints
 #### Products
-- Index 
-- Show
-- Create [token required]
-- [OPTIONAL] Top 5 most popular products 
-- [OPTIONAL] Products by category (args: product category)
+- Index: /products - GET
+- Show : /products/:id - GET
+- Create [token required] : /products/create - POST
+
 
 #### Users
-- Index [token required]
-- Show [token required]
-- Create N[token required]
+- Index [token required] : /users - GET
+- Show [token required] : /users/:id - GET
+- Create N[token required] : /users/create - POST
+- signIn: /users/signn - POST
 
 #### Orders
-- Current Order by user (args: user id)[token required]
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
+- Current Order by user (args: user id)[token required]: show/orders/user/:id - GET
+
 
 ## Data Shapes
 #### Product
--  id
-- name
-- price
-- [OPTIONAL] category
+-   product_id SERIAL PRIMARY KEY,
+- product_name VARCHAR(64) NOT NULL,
+- product_price integer NOT NULL
+
+
 
 #### User
-- id
-- firstName
-- lastName
-- password
+- user_id SERIAL PRIMARY KEY,
+- user_name VARCHAR(100),
+- first_name VARCHAR(150),
+- last_name VARCHAR(200),
+- user_password VARCHAR(250)
+
 
 #### Orders
-- id
-- id of each product in the order
-- quantity of each product in the order
-- user_id
-- status of order (active or complete)
+- order_id SERIAL PRIMARY KEY,
+- user_id integer  NOT NULL,
+- order_status VARCHAR(50) NOT NULL,
+    CONSTRAINT fk_user
+    FOREIGN KEY(user_id)
+	  REFERENCES users(user_id)
+
+#### order_products 
+-   order_products_id SERIAL PRIMARY KEY,
+-  product_quantity integer,
+- order_id integer REFERENCES orders(order_id), 
+- product_id integer REFERENCES products(product_id)   
+
+
 
