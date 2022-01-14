@@ -49,4 +49,4 @@
 
 ### Ports
 * Database: 5432
-* Backend: 3000 (or you can specify another env var)
+* Backend: 3000 (or specify another env var)
