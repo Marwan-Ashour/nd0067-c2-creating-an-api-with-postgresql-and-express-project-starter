@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express'
 import { Order, OrderStore } from '../models/order'
+import verifyAuthToken from '../middlewares/authenticateJWT'
 
 const store = new OrderStore()
 // expose current order by user
@@ -14,6 +15,6 @@ const show = async (req: Request, res: Response) => {
 }
 
 const ordersRoutes = (app: express.Application) => {
-  app.get('/orders/:id', show)}
+  app.get('/orders/:id', verifyAuthToken ,show)}
 
 export default ordersRoutes

@@ -46,3 +46,7 @@
 
 6- To run tests
 - npm run test1
+
+### Ports
+* Database: 5432
+* Backend: 3000 (or you can specify another env var)
