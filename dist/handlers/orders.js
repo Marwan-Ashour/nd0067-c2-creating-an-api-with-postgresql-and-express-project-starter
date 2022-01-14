@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var order_1 = require("../models/order");
 var store = new order_1.OrderStore();
-// expose current order
+// expose current order by user
 var show = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var order, err_1;
     return __generator(this, function (_a) {

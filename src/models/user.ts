@@ -1,4 +1,4 @@
-// @ts-ignore
+
 import bcrypt from 'bcrypt'
 import Client from '../database'
 
@@ -14,7 +14,7 @@ export class UserStore {
   async index(): Promise<User[]> {
     // encapsulate the whole mission in try/catch statement, in case anything goes wrong
     try {
-       // @ts-ignore
+       
        // start the connection with the db
       const conn = await Client.connect()
       // getting in and then we can talk to the db
@@ -33,7 +33,7 @@ export class UserStore {
     try {
       const sql =
         'SELECT * FROM users WHERE user_id=($1)'
-        // @ts-ignore
+        
       const conn = await Client.connect()
       const result = await conn.query(sql, [id])
       conn.release()
@@ -52,7 +52,7 @@ export class UserStore {
             uzr.user_password + process.env.BCRYPT_PASSWORD,
           parseInt(saltRounds)
         )
-        // @ts-ignore
+        
         const conn = await Client.connect()
         const sql =
           'INSERT INTO users (user_name, first_name, last_name, user_password) VALUES ($1, $2, $3, $4) RETURNING *';

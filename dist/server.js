@@ -14,6 +14,7 @@ app.use(body_parser_1.default.json());
 app.get('/', function (req, res) {
     res.send('Hello World!,, storefront backend project');
 });
+// Initialise the routes
 users_1.default(app);
 products_1.default(app);
 orders_1.default(app);

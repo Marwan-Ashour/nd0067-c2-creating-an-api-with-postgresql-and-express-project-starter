@@ -161,6 +161,7 @@ var signIn = function (req, res) { return __awaiter(void 0, void 0, void 0, func
     });
 }); };
 // all handlers connected to there urls properly
+// token required
 var usersRoutes = function (app) {
     app.get('/users', authenticateJWT_1.default, index);
     app.get('/users/:id', authenticateJWT_1.default, show);

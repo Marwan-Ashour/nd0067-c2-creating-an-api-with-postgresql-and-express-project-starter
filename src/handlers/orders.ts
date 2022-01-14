@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express'
 import { Order, OrderStore } from '../models/order'
 
 const store = new OrderStore()
-// expose current order
+// expose current order by user
 const show = async (req: Request, res: Response) => {
   try {
     const order: Order = await store.show(req.body.user_id)

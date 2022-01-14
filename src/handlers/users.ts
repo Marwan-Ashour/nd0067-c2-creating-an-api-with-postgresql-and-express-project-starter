@@ -76,6 +76,8 @@ const signIn = async (req: Request, res: Response) => {
 }
 
 // all handlers connected to there urls properly
+
+// token required
 const usersRoutes = (app: express.Application) => {
   app.get('/users', verifyAuthToken, index)
   app.get('/users/:id', verifyAuthToken, show)

@@ -4,4 +4,4 @@ CREATE TABLE users (
     first_name VARCHAR(150),
     last_name VARCHAR(200),
     user_password VARCHAR(250)
-);
+    );
